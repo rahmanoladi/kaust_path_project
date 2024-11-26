@@ -17,7 +17,7 @@ The option --repitition 1 specificies that the experiment should be run just onc
 
 **Example 2: Three runs of Graphormer model on ESOL dataset using Path info, and noise level of 0.1 :**
 
-python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 1 --epochs 200 \\      
+python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 3 --epochs 200 \\      
 --use_path_info 1  --add_noise 1 --noise_factor 0.1  \\ \
 --num-layers 4  --small_hidden_dim 21  --num_heads 3  \\    
 --dropout 0.04  --weight_decay 0.0004715  --batch-size 3 --lr 0.0001 \\  \
@@ -25,13 +25,19 @@ python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 1 --epochs 2
                 
 **Example 3: Three runs of Mix-Hop model on BBBP dataset using Path info, and noise level of 0.3 :**
 
-python train_mix_hop.py  --use_gpu 1 --dataset BBBP  --repitition 1 --epochs 200 \\ \
+python train_mix_hop.py  --use_gpu 1 --dataset BBBP  --repitition 3 --epochs 200 \\ \
 --use_path_info 1  --add_noise 1 --noise_factor 0.3  \\ \
 --num-layers 1    --small_hidden_dim 70      --max_pow 3 \\    
 --dropout 0.20              --weight_decay 2.037327e-15  --batch-size 9  --lr 0.00142 \\  \
 --dir_to_save_model path/to/mix_hop_models               
                  
+**Example 4: Three runs of our own T-Hop model on BBBP dataset using Path info, and noise level of 0.5 :**
 
+python train_t_hop.py --dataset ClinTox --repitition 3 --epochs 200 \\
+--use_path_info 1 --add_noise 1 --noise_factor 0.5 \\
+--num-layers 2   --hidden_dim 340   --pow_dim 4  \\
+--dropout 0.71  --weight_decay 1.18399e-14   --batch-size 10   --lr 0.00215  \\ 
+--dir_to_save_model path/to/t_hop_models
 
 
 
