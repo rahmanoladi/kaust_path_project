@@ -12,7 +12,7 @@ python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv --repitition 1 --epoc
 --dropout 0.35  --weight_decay 7.2362e-13  --batch-size 6  --lr 0.0283
 
 
-python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv  --splitter scaffold           --use_path_info 1 --add_noise 1 --noise_factor 0.1  --repitition 1      --atom_featurizer  canonical   --epochs 200    --early_patience 10       --num-layers 1    --hidden_dim 822   --dropout 0.25             --weight_decay 2.1900615298652762e-11  --batch-size 5  --lr 0.01480783638074209                 
+python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv  --splitter scaffold           --use_path_info 1 --add_noise 1 --noise_factor 0.1  --repitition 1 --epochs 200    --early_patience 10       --num-layers 1    --hidden_dim 822   --dropout 0.25             --weight_decay 2.1900615298652762e-11  --batch-size 5  --lr 0.01480783638074209                 
 
 
 
