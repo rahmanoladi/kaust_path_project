@@ -224,10 +224,10 @@ if __name__ == '__main__':
 
     parser.add_argument('--repitition', type=int, default=1, help='Number of times to repeat experiment.')
     parser.add_argument('--num_classes', type=int, default= None, help='Number of classes')  
-    parser.add_argument('--splitter', type=str, default=None, help='Data splitting method. Choose from: [scaffold, random, consec ]') 
+    parser.add_argument('--splitter', type=str, default='scaffold', help='Data splitting method. Choose from: [scaffold, random, consec ]') 
     parser.add_argument('--rand_state', type=float, default=None, help='random seed when using random splitting method for dataset')  
-    parser.add_argument('-af', '--atom_featurizer', type=str, default = None, help='Featurization for atoms')              
-    #parser.add_argument('-bf', '--bond_featurizer', type = str, default=None, help='Featurization for bonds')
+    parser.add_argument('-af', '--atom_featurizer', type=str, default = 'canonical', help='Featurization for atoms')              
+    #parser.add_argument('-bf', '--bond_featurizer', type = str, default='canonical', help='Featurization for bonds')
     parser.add_argument('--epochs', type=int, default=1, help='Number of epochs to train.')
     parser.add_argument('--num-layers', type=int, default=None, help='Number of layers.')
     parser.add_argument('--hidden_dim', type=int, default= None, help='hidden layer(s) dimension')
@@ -239,7 +239,7 @@ if __name__ == '__main__':
     parser.add_argument('-me', '--metric', choices=['roc_auc_score', 'pr_auc_score', 'r2', 'mae', 'rmse'], default=None, help='Metric for evaluation (default: roc_auc_score)')
     parser.add_argument('-nw', '--num-workers', type=int, default=0, help='Number of processes for data loading (default: 0)')    
     parser.add_argument('--opt', type=str, default= 'adam', help='Optimizer')   
-    parser.add_argument('--early_patience', type=int, default=0, help='Number of epochs to wait before early-stopping training')
+    parser.add_argument('--early_patience', type=int, default=10, help='Number of epochs to wait before early-stopping training')
     parser.add_argument('--use_gpu', type=int, default= None, help='Whether or not to use GPU')
     parser.add_argument('--dir_to_save_model', type=str, default= '/ibex/user/ibraheao/path_project/deeper_gcn/model_directory', help='power dimension + 1')
     
