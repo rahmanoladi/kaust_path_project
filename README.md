@@ -38,8 +38,3 @@ python train_t_hop.py --dataset ClinTox --repitition 3 --epochs 200 \\ \
 --num-layers 2   --hidden_dim 340   --pow_dim 4  \\ \
 --dropout 0.71  --weight_decay 1.18399e-14   --batch-size 10   --lr 0.00215  \\\ 
 --dir_to_save_model path/to/t_hop_models
-
-
-
-
-
