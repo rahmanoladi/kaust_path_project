@@ -6,7 +6,7 @@ The programs in this repo were written using Python 3.9.18, Pytorch 2.2.1, DGL 2
 
 # Sample Runs
 
-python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv --repitition 1 --epochs 200  \\      \ 
+python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv --repitition 1 --epochs 200  \\ \ 
 --use_path_info 0  --add_noise 0 --noise_factor 0.1  \\ \
 --num-layers 1 --hidden_dim 1140  \\ \
 --dropout 0.35  --weight_decay 7.2362e-13  --batch-size 6  --lr 0.0283
