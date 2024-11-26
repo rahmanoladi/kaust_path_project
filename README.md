@@ -25,7 +25,7 @@ python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 1 --epochs 2
                 
 **Example 3: Three runs of Mix-Hop model on BBBP dataset using Path info, and noise level of 0.3 :**
 
-python train_mix_hop.py  --use_gpu 1 --dataset BBBP  --repitition 1 --epochs 200 \\ 
+python train_mix_hop.py  --use_gpu 1 --dataset BBBP  --repitition 1 --epochs 200 \\ \
 --use_path_info 1  --add_noise 1 --noise_factor 0.3  \\ \
 --num-layers 1    --small_hidden_dim 70      --max_pow 3 \\    
 --dropout 0.20              --weight_decay 2.037327e-15  --batch-size 9  --lr 0.00142 \\
