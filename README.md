@@ -5,15 +5,21 @@ This Project explores the importance of incorporating path information in GNN-st
 The programs in this repo were written using Python 3.9.18, Pytorch 2.2.1, DGL 2.4.0 and DGLLife 0.3.2. You should install the above packages in your environment before running the programs in this repo.
 
 # Sample Runs
-**Example 1: DeeperGCN model on FreeSolv dataset without Path info, and no noise:** 
+**Example 1: Single run of DeeperGCN model on FreeSolv dataset without Path info, and no noise:** 
 
 python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv --repitition 1 --epochs 200  \\  
 --use_path_info 0  --add_noise 0 --noise_factor 0.0  \\ \
 --num-layers 1 --hidden_dim 1140  \\ \
 --dropout 0.35  --weight_decay 7.2362e-13  --batch-size 6  --lr 0.0283
 
+The option --repitition 1 specificies that the experiment should be run just once. It's possible to specify as many runs as possible. The program will output the mean and standard deviation of the pertinent metric (e.g RMSE or ROC-AUC) for the set of runs. We see this in the ensuing examples.
 
-python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv  --splitter scaffold           --use_path_info 1 --add_noise 1 --noise_factor 0.1  --repitition 1 --epochs 200    --early_patience 10       --num-layers 1    --hidden_dim 822   --dropout 0.25             --weight_decay 2.1900615298652762e-11  --batch-size 5  --lr 0.01480783638074209                 
+**Example 2: Three runs of Graphormer model on ESOL dataset using Path info, and noise level of 0.1 :**
+python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 1 --epochs 200 \\       
+--use_path_info 1  --add_noise 1 --noise_factor 0.1  \\ \
+--num-layers 4  --small_hidden_dim 21  --num_heads 3  \\ \   
+--dropout 0.04  --weight_decay 0.0004715  --batch-size 3 --lr 0.0001                
+                
 
 
 
