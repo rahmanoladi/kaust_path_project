@@ -36,5 +36,5 @@ python train_mix_hop.py  --use_gpu 1 --dataset BBBP  --repitition 3 --epochs 200
 python train_t_hop.py --dataset ClinTox --repitition 3 --epochs 200 \\ \
 --use_path_info 1 --add_noise 1 --noise_factor 0.5 \\ \
 --num-layers 2   --hidden_dim 340   --pow_dim 4  \\ \
---dropout 0.71  --weight_decay 1.18399e-14   --batch-size 10   --lr 0.00215  \\\ 
+--dropout 0.71  --weight_decay 1.18399e-14   --batch-size 10   --lr 0.00215 \\  
 --dir_to_save_model path/to/t_hop_models
