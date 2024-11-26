@@ -10,7 +10,7 @@ The programs in this repo were written using Python 3.9.18, Pytorch 2.2.1, DGL 2
 python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv --repitition 1 --epochs 200  \\  
 --use_path_info 0  --add_noise 0 --noise_factor 0.0  \\ \
 --num-layers 1 --hidden_dim 1140  \\ \
---dropout 0.35  --weight_decay 7.2362e-13  --batch-size 6  --lr 0.0283 \\
+--dropout 0.35  --weight_decay 7.2362e-13  --batch-size 6  --lr 0.0283 \\ \
 --dir_to_save_model path/to/deeper_gcn_models
 
 The option --repitition 1 specificies that the experiment should be run just once. It's possible to specify as many runs as possible. The program will output the mean and standard deviation of the pertinent metric (e.g RMSE or ROC-AUC) for the set of runs. We see this in the ensuing examples.
