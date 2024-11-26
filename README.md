@@ -20,7 +20,7 @@ The option --repitition 1 specificies that the experiment should be run just onc
 python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 1 --epochs 200 \\      
 --use_path_info 1  --add_noise 1 --noise_factor 0.1  \\ \
 --num-layers 4  --small_hidden_dim 21  --num_heads 3  \\    
---dropout 0.04  --weight_decay 0.0004715  --batch-size 3 --lr 0.0001 \\
+--dropout 0.04  --weight_decay 0.0004715  --batch-size 3 --lr 0.0001 \\  \
 --dir_to_save_model path/to/graphormer_models               
                 
 **Example 3: Three runs of Mix-Hop model on BBBP dataset using Path info, and noise level of 0.3 :**
