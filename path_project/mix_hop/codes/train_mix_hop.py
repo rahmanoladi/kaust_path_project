@@ -235,7 +235,7 @@ if __name__ == '__main__':
     parser.add_argument('-me', '--metric', choices=['roc_auc_score', 'pr_auc_score', 'r2', 'mae', 'rmse'], default=None, help='Metric for evaluation (default: roc_auc_score)')
     parser.add_argument('-nw', '--num-workers', type=int, default=0, help='Number of processes for data loading (default: 0)')    
     parser.add_argument('--opt', type=str, default= 'adam', help='Optimizer')   
-    parser.add_argument('--early_patience', type=int, default=0, help='Number of epochs to wait before early-stopping training')
+    parser.add_argument('--early_patience', type=int, default=10, help='Number of epochs to wait before early-stopping training')
     parser.add_argument('--use_gpu', type=int, default= None, help='Whether or not to use GPU')
     parser.add_argument('--dir_to_save_model', type=str, default= '/ibex/user/ibraheao/path_project/mix_hop/model_directory', help='power dimension + 1')
 
