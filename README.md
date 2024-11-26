@@ -10,7 +10,8 @@ The programs in this repo were written using Python 3.9.18, Pytorch 2.2.1, DGL 2
 python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv --repitition 1 --epochs 200  \\  
 --use_path_info 0  --add_noise 0 --noise_factor 0.0  \\ \
 --num-layers 1 --hidden_dim 1140  \\ \
---dropout 0.35  --weight_decay 7.2362e-13  --batch-size 6  --lr 0.0283 --dir_to_save_model path/to/deeper_gcn_models
+--dropout 0.35  --weight_decay 7.2362e-13  --batch-size 6  --lr 0.0283 \\
+--dir_to_save_model path/to/deeper_gcn_models
 
 The option --repitition 1 specificies that the experiment should be run just once. It's possible to specify as many runs as possible. The program will output the mean and standard deviation of the pertinent metric (e.g RMSE or ROC-AUC) for the set of runs. We see this in the ensuing examples.
 
@@ -19,14 +20,16 @@ The option --repitition 1 specificies that the experiment should be run just onc
 python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 1 --epochs 200 \\ \      
 --use_path_info 1  --add_noise 1 --noise_factor 0.1  \\ \
 --num-layers 4  --small_hidden_dim 21  --num_heads 3  \\    
---dropout 0.04  --weight_decay 0.0004715  --batch-size 3 --lr 0.0001 --dir_to_save_model path/to/graphormer_models               
+--dropout 0.04  --weight_decay 0.0004715  --batch-size 3 --lr 0.0001 \\
+--dir_to_save_model path/to/graphormer_models               
                 
 **Example 3: Three runs of Mix-Hop model on BBBP dataset using Path info, and noise level of 0.3 :**
 
 python train_mix_hop.py  --use_gpu 1 --dataset BBBP  --repitition 1 --epochs 200 \\ 
 --use_path_info 1  --add_noise 1 --noise_factor 0.3  \\ \
 --num-layers 1    --small_hidden_dim 70      --max_pow 3 \\    
---dropout 0.20              --weight_decay 2.037327e-15  --batch-size 9  --lr 0.00142  --dir_to_save_model path/to/mix_hop_models               
+--dropout 0.20              --weight_decay 2.037327e-15  --batch-size 9  --lr 0.00142 \\
+--dir_to_save_model path/to/mix_hop_models               
                  
 
 
