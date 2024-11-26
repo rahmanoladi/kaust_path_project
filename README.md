@@ -15,6 +15,7 @@ python train_deeper_gcn.py  --use_gpu 1 --dataset FreeSolv --repitition 1 --epoc
 The option --repitition 1 specificies that the experiment should be run just once. It's possible to specify as many runs as possible. The program will output the mean and standard deviation of the pertinent metric (e.g RMSE or ROC-AUC) for the set of runs. We see this in the ensuing examples.
 
 **Example 2: Three runs of Graphormer model on ESOL dataset using Path info, and noise level of 0.1 :**
+
 python train_graphormer.py  --use_gpu 1 --dataset ESOL --repitition 1 --epochs 200 \\       
 --use_path_info 1  --add_noise 1 --noise_factor 0.1  \\ \
 --num-layers 4  --small_hidden_dim 21  --num_heads 3  \\ \   
