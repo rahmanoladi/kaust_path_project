@@ -219,7 +219,7 @@ def main():
         t1 = time.time()
         train_loss, train_score = train(train_loader, num_train_batches, device, args.max_nodes, args.max_len, model, loss_fn, opt) 
         t2 = time.time()
-        time_elapsed = time_eplased + (t2 - t1)
+        time_elapsed = time_elapsed + (t2 - t1)
         val_loss, val_score =   test(val_loader, num_val_batches, device, args.max_nodes, args.max_len, model, loss_fn)
     time_elapsed = time_elapsed/(args.epochs * 60)
     print(f'Minutes elapsed training for {args.epochs} epochs is: {time_elapsed}')
