@@ -234,7 +234,7 @@ if __name__ == '__main__':
     #from utils import init_featurizer, mkdir_p, split_dataset, get_configure
 
     parser = ArgumentParser('Moleculenet')
-    parser.add_argument('-d', '--dataset', type=str, default='Lipophilicity' help='Dataset to use.')
+    parser.add_argument('-d', '--dataset', type=str, default='Lipophilicity', help='Dataset to use.')
     parser.add_argument('--use_path_info', type=int, default=0, help='Whether or not to use path info.')
     parser.add_argument('--add_noise', type=int, default=None, help='Whether or not to add noise to features.')
     parser.add_argument('--noise_factor', type=float, default=-1, help='Level of noise to add.')
