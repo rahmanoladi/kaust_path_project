@@ -1678,6 +1678,35 @@ def max_nodes_and_edges(dataset):
 
 
 
+
+def max_path_len(dataset):
+    len_dataset = len(dataset)
+    max_path_len = 0
+    len_0 = len(dataset[0])
+
+    if len_0 == 4:
+        for i in range(len_dataset):
+
+            smiles, dgl_graph, labels, masks = dataset[i]
+            dist_mat, path = dgl.shortest_dist(dgl_graph, return_paths=True)
+
+            if path.shape[2] > max_path_len:
+                max_path_len = path.shape[2]
+
+
+    elif len_0 == 3:
+        for i in range(len_dataset):
+            smiles, dgl_graph, labels = dataset[i]
+
+            dist_mat, path = dgl.shortest_dist(dgl_graph, return_paths=True)
+
+            if path.shape[2] > max_path_len:
+                max_path_len = path.shape[2]
+
+    return max_path_len
+
+
+
 def add_noise_to_node(dgl_graph, seed, node_std):
         torch.manual_seed(seed)
         node_feats = dgl_graph.ndata['h']
