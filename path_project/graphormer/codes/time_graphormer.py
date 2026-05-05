@@ -213,16 +213,16 @@ def main():
     elif args.metric in ['roc_auc_score', 'pr_auc_score'] :
         loss_fn = nn.BCEWithLogitsLoss(reduction='none')
 
-    ## Train and evaluate:    
-    for epoch in range(args.epochs):      
-        train_loss, train_score = train(train_loader, num_train_batches, device, args.max_nodes, args.max_len, model, loss_fn, opt)              
+    ## Train and evaluate:
+    time_elapsed = 0.
+    for epoch in range(args.epochs):
+        t1 = time.time()
+        train_loss, train_score = train(train_loader, num_train_batches, device, args.max_nodes, args.max_len, model, loss_fn, opt) 
+        t2 = time_time()
+        time_elapsed = time_eplased + (t2 - t1)
         val_loss, val_score =   test(val_loader, num_val_batches, device, args.max_nodes, args.max_len, model, loss_fn)
-
-        early_stop = stopper.step(val_score, model)        
-        if early_stop:
-            break 
-
-    stopper.load_checkpoint(model)
+    time_elapsed = time_elapsed/(args.epochs * 60)
+    print(f'Minutes elapsed training for {args.epochs} epochs is: {time_elapsed}')
     val_loss, val_score =   test(val_loader, num_val_batches, device, args.max_nodes, args.max_len, model, loss_fn)
     test_loss, test_score = test(test_loader, num_test_batches, device, args.max_nodes, args.max_len, model, loss_fn) 
     return val_score, test_score
