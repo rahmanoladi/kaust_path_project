@@ -26,7 +26,7 @@ def get_utils_path():
     
 
 #utils_path = get_utils_path()
-utils_path = 'kaust_path_project/path_project/t_hop/codes/'
+utils_path = 'kaust_path_project/path_project/utils'
 print("UTILS_PATH: ", utils_path)
 sys.path.insert(1, utils_path)
 
