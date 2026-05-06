@@ -244,10 +244,11 @@ if __name__ == '__main__':
     parser.add_argument('--pooling', type=str, default= 'mean', help='pooling method to use')
     parser.add_argument('--dir_to_save_model', type=str, default= '/ibex/user/ibraheao/path_project/t_hop/model_directory', help='power dimension + 1')
     args = parser.parse_args()
-    args.max_len = args.pow_dim + 1
-
-
     
+    if args.use_path_info==0:
+        args.pow_dim = 0
+
+    args.max_len = args.pow_dim + 1
 ## Get featurizer and load dataset:
 
     if args.atom_featurizer == 'canonical':
