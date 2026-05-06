@@ -65,18 +65,19 @@ def train(data_loader, num_batches, device, max_nodes, pow_dim, max_len, norm_st
     for i, batch in enumerate(data_loader):
  
         smiles, dgl_graph, labels, masks, adj, beta = batch  
+        numb_nodes = dgl_graph.num_nodes()
+        batch_num_nodes = dgl_graph.batch_num_nodes()
         if args.pow_dim == 0:
             adj = dgl_graph.adj_external(scipy_fmt='csr')
             adj = adj.todense()
-            adj = pad_mat_2d(adj, max_nodes)
+            adj = split_pad_and_stack_adj(adj, batch_num_nodes, max_nodes)
             
         if args.add_noise:
             dgl_graph = add_noise_to_node(dgl_graph, num_batches * args.run_index +  i, args.node_std) 
 
         labels, masks = labels.to(device), masks.to(device)
 
-        numb_nodes = dgl_graph.num_nodes()
-        batch_num_nodes = dgl_graph.batch_num_nodes()
+
         feats = dgl_graph.ndata['h']
         feats = feats.numpy()
         feats = split_pad_and_stack_feat(feats, batch_num_nodes, max_nodes)
@@ -112,10 +113,12 @@ def test(data_loader, num_batches, device, max_nodes, pow_dim, max_len, norm_sty
     for i, batch in enumerate(data_loader):
  
         smiles, dgl_graph, labels, masks, adj, beta = batch 
+        numb_nodes = dgl_graph.num_nodes()
+        batch_num_nodes = dgl_graph.batch_num_nodes()
         if args.pow_dim == 0:
             adj = dgl_graph.adj_external(scipy_fmt='csr')
             adj = adj.todense()
-            adj = pad_mat_2d(adj, max_nodes)
+            adj = split_pad_and_stack_adj(adj, batch_num_nodes, max_nodes)
             
         if args.add_noise:
             dgl_graph = add_noise_to_node(dgl_graph,  num_batches * args.run_index +  i, args.node_std) 
