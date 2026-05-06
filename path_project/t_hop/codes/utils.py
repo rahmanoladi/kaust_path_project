@@ -126,7 +126,7 @@ def aws_collate_and_beta(data, pow_dim=None,  max_nodes =None, add_identity =0, 
 
     
     if pow_dim == 0:
-        adj = g.adj_external(scipy_fmt='csr')
+        adj = graphs.adj_external(scipy_fmt='csr')
         adj = adj.todense().float()
         beta = 0.
     else:
