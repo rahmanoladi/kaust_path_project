@@ -186,16 +186,18 @@ def main():
     elif args.metric in ['roc_auc_score', 'pr_auc_score'] :
         loss_fn = nn.BCEWithLogitsLoss(reduction='none')
 
-## Train and evaluate:    
-    for epoch in range(args.epochs):                               
+## Train and evaluate:
+    time_elapsed = 0.
+    for epoch in range(args.epochs): 
+        t1 = time.time()
         train_loss, train_score = train(train_loader, num_train_batches, device, args.max_nodes, args.pow_dim,  args.max_len, args.edge_norm,  model, loss_fn, opt, args.residual)         
+        t2 = time.time()
+        time_elapsed = time_elapsed + (t2 - t1)
+        time_elapsed = time_elapsed/(args.epochs )
+        print(f'Seconds elapsed training for {args.epochs} epochs is: {time_elapsed}')
+
         val_loss, val_score =   test(val_loader, num_val_batches, device, args.max_nodes, args.pow_dim,  args.max_len, args.edge_norm,  model, loss_fn, opt, args.residual) 
         
-        early_stop = stopper.step(val_score, model)       
-        if early_stop:
-            break 
-
-    stopper.load_checkpoint(model)
     val_loss, val_score =   test(val_loader, num_val_batches, device, args.max_nodes, args.pow_dim,  args.max_len, args.edge_norm,  model, loss_fn, opt, args.residual) 
     test_loss, test_score = test(test_loader, num_val_batches, device, args.max_nodes, args.pow_dim,  args.max_len, args.edge_norm,  model, loss_fn, opt, args.residual) 
  
