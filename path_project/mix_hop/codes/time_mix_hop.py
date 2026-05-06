@@ -203,12 +203,6 @@ def main():
         print(f'Seconds elapsed training for {args.epochs} epochs is: {time_elapsed}')
 
         val_loss, val_score =   test(val_loader, num_val_batches, device, args.max_nodes, model, loss_fn)
-
-        early_stop = stopper.step(val_score, model)       
-        if early_stop:
-            break 
-
-    stopper.load_checkpoint(model)
     val_loss, val_score =   test(val_loader, num_val_batches, device, args.max_nodes,  model, loss_fn)
     test_loss, test_score = test(test_loader,  num_test_batches, device, args.max_nodes,  model, loss_fn) 
     return val_score, test_score  
