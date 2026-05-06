@@ -125,10 +125,14 @@ def aws_collate_and_beta(data, pow_dim=None,  max_nodes =None, add_identity =0, 
         smiles, graphs, labels, masks = map(list, zip(*data))
 
     
-
-    adj_and_beta = beta_from_dgl_graph_list(graphs, pow_dim, max_len, max_nodes, add_identity, truncate_beta)
-    adj = adj_and_beta[0]
-    beta = adj_and_beta[1]
+    if pow_dim == 0:
+        adj = g.adj_external(scipy_fmt='csr')
+        adj = adj.todense().float()
+        beta = 0.
+    else:
+        adj_and_beta = beta_from_dgl_graph_list(graphs, pow_dim, max_len, max_nodes, add_identity, truncate_beta)
+        adj = adj_and_beta[0]
+        beta = adj_and_beta[1]
     bg = dgl.batch(graphs)
     bg.set_n_initializer(dgl.init.zero_initializer)
     bg.set_e_initializer(dgl.init.zero_initializer)
