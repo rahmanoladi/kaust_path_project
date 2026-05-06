@@ -65,7 +65,10 @@ def train(data_loader, num_batches, device, max_nodes, pow_dim, max_len, norm_st
     for i, batch in enumerate(data_loader):
  
         smiles, dgl_graph, labels, masks, adj, beta = batch  
-
+        if args.pow_dim == 0:
+            adj = dgl_graph.adj_external(scipy_fmt='csr')
+            adj = adj.todense()
+            
         if args.add_noise:
             dgl_graph = add_noise_to_node(dgl_graph, num_batches * args.run_index +  i, args.node_std) 
 
@@ -108,6 +111,10 @@ def test(data_loader, num_batches, device, max_nodes, pow_dim, max_len, norm_sty
     for i, batch in enumerate(data_loader):
  
         smiles, dgl_graph, labels, masks, adj, beta = batch 
+        if args.pow_dim == 0:
+            adj = dgl_graph.adj_external(scipy_fmt='csr')
+            adj = adj.todense()
+            
         if args.add_noise:
             dgl_graph = add_noise_to_node(dgl_graph,  num_batches * args.run_index +  i, args.node_std) 
  
