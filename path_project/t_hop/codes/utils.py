@@ -124,7 +124,7 @@ def aws_collate_and_beta(data, pow_dim=None,  max_nodes =None, add_identity =0, 
     else:
         smiles, graphs, labels, masks = map(list, zip(*data))
 
-    
+    print ('\n \n GRAPHS: ', graphs)
     if pow_dim == 0:
         adj = graphs.adj_external(scipy_fmt='csr')
         adj = adj.todense().float()
