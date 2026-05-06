@@ -68,6 +68,7 @@ def train(data_loader, num_batches, device, max_nodes, pow_dim, max_len, norm_st
         if args.pow_dim == 0:
             adj = dgl_graph.adj_external(scipy_fmt='csr')
             adj = adj.todense()
+            adj = pad_mat_2d(adj, max_nodes)
             
         if args.add_noise:
             dgl_graph = add_noise_to_node(dgl_graph, num_batches * args.run_index +  i, args.node_std) 
@@ -114,6 +115,7 @@ def test(data_loader, num_batches, device, max_nodes, pow_dim, max_len, norm_sty
         if args.pow_dim == 0:
             adj = dgl_graph.adj_external(scipy_fmt='csr')
             adj = adj.todense()
+            adj = pad_mat_2d(adj, max_nodes)
             
         if args.add_noise:
             dgl_graph = add_noise_to_node(dgl_graph,  num_batches * args.run_index +  i, args.node_std) 
